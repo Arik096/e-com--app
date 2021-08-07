@@ -20,16 +20,17 @@
                         </div>
                         </h2>
                         <div class="card-body">
-                            <form>
+                            <form action="{{route('login')}}" method="POST">
+                                @csrf
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1" style="padding: 5px;">Email address</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1"
-                                        aria-describedby="emailHelp" placeholder="Enter email">
+                                    <label for="email" style="padding: 5px;">Email address</label>
+                                    <input type="email" class="form-control" id="email" name="email"
+                                        placeholder="Enter your email address" value="{{old('email')}}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1" style="padding: 5px;">Password</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1"
-                                        placeholder="Password">
+                                    <label for="password" style="padding: 5px;">Password</label>
+                                    <input type="password" class="form-control" id="password" name="password"
+                                        placeholder="Enter your Password" value="{{old('password')}}">
                                 </div>
                                 <div style="display: flex; justify-content:center; padding-top:10px;">
                                     <button type="submit" class="btn btn-primary">Submit</button>
