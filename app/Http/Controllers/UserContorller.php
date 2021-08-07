@@ -16,7 +16,8 @@ class UserContorller extends Controller
         //     ->get();
 
         $user = User::where('email', $request->email)
-            ->get();
+            ->get()
+            ->first();
 
         if ($user && Hash::check($request->password, $user->password)) {
             $request->session()->put('user', $user);
