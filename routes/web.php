@@ -20,4 +20,4 @@ Route::get('/', function () {
 
 Route::view('/login', 'user.login')->name('loginPage');
 
-Route::post('/login',[UserContorller::class, 'login'])->name('login');
+Route::post('/login', [UserContorller::class, 'login'])->name('login');
