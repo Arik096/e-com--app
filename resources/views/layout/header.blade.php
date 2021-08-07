@@ -28,18 +28,32 @@
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-primary" type="submit">Search</button>
                         </form>
-                        <ul class="navbar-nav me-2 mb-2 mb-lg-0">
-                            <li class="nav-item me-2">
-                                <a href="{{ route('loginPage') }}">
+                        @if (Session::has('user'))
+                            @php
+                                $user[] = Session::get('user');
+                            @endphp
+                            <ul class="navbar-nav me-2 mb-2 mb-lg-0">
+                                <li class="nav-item me-2">
                                     <button class="btn btn-outline-primary">
-                                        Login
+                                        {{ $user[0]->name }}
                                     </button>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <button class="btn btn-outline-primary">Register</button>
-                            </li>
-                        </ul>
+                                </li>
+                            </ul>
+                        @endif
+                        @if (!Session::has('user'))
+                            <ul class="navbar-nav me-2 mb-2 mb-lg-0">
+                                <li class="nav-item me-2">
+                                    <a href="{{ route('loginPage') }}">
+                                        <button class="btn btn-outline-primary">
+                                            Login
+                                        </button>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="btn btn-outline-primary">Register</button>
+                                </li>
+                            </ul>
+                        @endif
                     </div>
                 </div>
             </nav>
