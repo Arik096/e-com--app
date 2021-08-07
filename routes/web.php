@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserContorller;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +19,5 @@ Route::get('/', function () {
 })->name('home');
 
 Route::view('/login', 'user.login')->name('loginPage');
+
+Route::post('/login',[UserContorller::class, 'login'])->name('login');
