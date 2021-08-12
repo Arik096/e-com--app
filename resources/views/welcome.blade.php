@@ -89,7 +89,3 @@
     }
 
 </style>
-
-<script>
-
-</script>
